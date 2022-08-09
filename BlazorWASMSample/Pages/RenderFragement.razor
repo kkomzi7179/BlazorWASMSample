@@ -47,16 +47,16 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Button information
+    /// </summary>
+    /// <param name="BsColor">Bootstrap color class</param>
+    /// <param name="BtnText">Button text</param>
+    record struct BtnInfo(string BsColor, string BtnText);
     private RenderFragment<BtnInfo> Btn => btnInfo => __builder =>
     {
         <button type="button" class="btn btn-@(btnInfo.BsColor) p-1">
             @btnInfo.BtnText
         </button>
     };
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="BsColor">Bootstrap color class</param>
-    /// <param name="BtnText">Button text</param>
-    record struct BtnInfo(string BsColor, string BtnText);
 }
