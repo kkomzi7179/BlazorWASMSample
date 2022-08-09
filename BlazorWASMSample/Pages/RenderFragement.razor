@@ -1,0 +1,62 @@
+﻿@page "/RenderFragement"
+
+<PageTitle>RenderFragement</PageTitle>
+
+<div class="row">
+    <div class="col">
+        <div class="d-flex">
+            <div class="btn-group me-1" role="group">
+                <button type="button" class="btn btn-primary p-1">
+                    Menu 1
+                </button>
+                <button type="button" class="btn btn-warning p-1">
+                    Menu 2
+                </button>
+                <button type="button" class="btn btn-success p-1">
+                    Menu 3
+                </button>
+                <button type="button" class="btn btn-secondary p-1">
+                    Menu 4
+                </button>
+            </div>
+            <button class="btn btn-outline-primary p-1 menuCollapse" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow p-1 actionmenu" style="min-width:auto">
+                <div class="vstack gap-1">
+                    <div class="btn-group" role="group">
+                        @Btn(new BtnInfo("outline-primary", "CollapseMenu1"))
+                        @Btn(new BtnInfo("outline-danger", "CollapseMenu2"))
+                    </div>
+                    <div class="btn-group" role="group">
+                        @Btn(new BtnInfo("outline-info", "CollapseMenu3"))
+                        @Btn(new BtnInfo("outline-warning", "CollapseMenu4"))
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group menuExpand" role="group">
+                @Btn(new BtnInfo("outline-primary", "CollapseMenu1"))
+                @Btn(new BtnInfo("outline-danger", "CollapseMenu2"))
+                @Btn(new BtnInfo("outline-info", "CollapseMenu3"))
+                @Btn(new BtnInfo("outline-warning", "CollapseMenu4"))
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private RenderFragment<BtnInfo> Btn => btnInfo => __builder =>
+    {
+        <button type="button" class="btn btn-@(btnInfo.BsColor) p-1">
+            @btnInfo.BtnText
+        </button>
+    };
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="BsColor">Bootstrap color class</param>
+    /// <param name="BtnText">Button text</param>
+    record struct BtnInfo(string BsColor, string BtnText);
+}

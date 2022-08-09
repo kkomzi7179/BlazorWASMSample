@@ -1,0 +1,20 @@
+﻿/* 드랍다운 메뉴 숨김 */
+.menuCollapse {
+    display: none;
+}
+/*
+    작은 화면 처리
+*/
+@media (max-width: 640.98px) {
+    /* 가로 메뉴 숨김 */
+    .menuExpand {
+        display: none;
+    }
+    /* 드랍다운 메뉴 활성화 */
+    .menuCollapse {
+        display: flex;
+    }
+}
+.actionmenu {
+    transition: all 0.3s ease-in-out;
+}
