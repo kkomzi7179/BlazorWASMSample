@@ -1,9 +1,17 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@using BlazorApp.Services
 
-<h1>Hello, world!</h1>
+@inject AppState State
 
-Welcome to your new app.
+<PageTitle>AppState sample</PageTitle>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<button class="btn btn-primary" @onclick="ToggleLoginStatus">Toggle login status</button>
+
+@code {
+    private async Task ToggleLoginStatus()
+    {
+        State.IsLogin = !State.IsLogin;
+        await State.UpdateLoginStatus();
+    }
+}
