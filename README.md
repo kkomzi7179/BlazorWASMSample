@@ -1,5 +1,7 @@
-# BlazorWASMSamplek
+# BlazorWASMSample
 https://blog.kkomzi.net/ post source code
 
 ## Post List
-### blazor RenderFragment : https://blog.kkomzi.net/1634
+### RenderFragment
+- Post : https://blog.kkomzi.net/1634
+- Source : [RenderFragment](/RenderFragment)
