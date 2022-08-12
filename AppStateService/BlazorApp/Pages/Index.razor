@@ -2,16 +2,16 @@
 
 @using BlazorApp.Services
 
-@inject AppState State
+@inject AppStateService AppState
 
-<PageTitle>AppState sample</PageTitle>
+<PageTitle>AppStateService sample</PageTitle>
 
 <button class="btn btn-primary" @onclick="ToggleLoginStatus">Toggle login status</button>
 
 @code {
     private async Task ToggleLoginStatus()
     {
-        State.IsLogin = !State.IsLogin;
-        await State.UpdateLoginStatus();
+        AppState.IsLogin = !AppState.IsLogin;
+        await AppState.UpdateLoginStatus();
     }
 }

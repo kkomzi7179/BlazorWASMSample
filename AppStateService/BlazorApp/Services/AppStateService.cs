@@ -1,8 +1,8 @@
 ﻿namespace BlazorApp.Services
 {
-    public class AppState
+    public class AppStateService
     {
-        public AppState()
+        public AppStateService()
         {
         }
         public bool IsLogin { get; set; }

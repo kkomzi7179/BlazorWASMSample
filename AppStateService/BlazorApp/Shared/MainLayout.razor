@@ -9,7 +9,7 @@
 
     <main>
         <div class="top-row px-4">
-            Login statud : @(State.IsLogin ? "Login" : "Not login")
+            Login statud : @(AppState.IsLogin ? "Login" : "Not login")
         </div>
 
         <article class="content px-4">
@@ -20,10 +20,10 @@
 
 @code {
     [Inject]
-    AppState State { get; set; }
+    AppStateService AppState { get; set; }
     protected override async Task OnInitializedAsync()
     {
-        State.OnUpdateLoginStatus += async () => { await InvokeAsync(StateHasChanged); };
+        AppState.OnUpdateLoginStatus += async () => { await InvokeAsync(StateHasChanged); };
 
         await Task.CompletedTask;
     }
